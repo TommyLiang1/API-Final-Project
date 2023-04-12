@@ -6,25 +6,25 @@ This API allow users to interact with other users through posts
 
 **GET**
 
-- get Users (/api/User)
-- get User by Id (/api/User/:id)
-- get Posts (/api/Post)
-- get Post by Id (/api/Post/:id)
+- get Users -> /api/User
+- get User by Id -> /api/User/:id
+- get Posts -> /api/Post
+- get Post by Id -> /api/Post/:id
 
 **POST**
 
-- create User (/api/User)
-- create Post (/api/Post)
+- create User -> /api/User
+- create Post -> /api/Post
 
 **PUT**
 
-- edit User by Id (/api/User/:id)
-- edit Post by Id (/api/Post/:id)
+- edit User by Id -> /api/User/:id
+- edit Post by Id -> /api/Post/:id
 
 **DELETE**
 
-- delete User by Id (/api/User/:id)
-- delete Post by Id (/api/Post/:id)
+- delete User by Id -> /api/User/:id
+- delete Post by Id -> /api/Post/:id
 
 ## Sample Request Body
 
