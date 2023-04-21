@@ -20,7 +20,6 @@ namespace ChattingAPI.Models
 
         public DbSet<User> User { get; set; } = null!;
         public DbSet<Post> Post { get; set; } = null!;
-        public DbSet<ChattingAPI.Models.UserInfo>? UserInfo { get; set; }
-        //public DbSet<Email> Emails { get; set; } = null!;
+        public DbSet<UserInfo> UserInfo { get; set; }
     }
 }
