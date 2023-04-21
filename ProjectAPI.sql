@@ -1,20 +1,23 @@
-CREATE DATABASE IF NOT EXISTS APIFinalProject;
+DROP DATABASE IF EXISTS APIFinalProject;
+CREATE DATABASE APIFinalProject;
 USE APIFinalProject;
-
-DROP TABLE IF EXISTS Post;
-DROP TABLE IF EXISTS User;
 
 CREATE TABLE User(
 	UserId INT NOT NULL auto_increment,
     UserName VARCHAR(255) NOT NULL UNIQUE,
     Email VARCHAR(255) NOT NULL UNIQUE,
-    FirstName VARCHAR(255) NOT NULL,
-    LastName VARCHAR(255) NOT NULL,
-    Bio VARCHAR(255),
-    City VARCHAR(255),
-    Education VARCHAR(255),
-    ImgUrl VARCHAR(255),
     PRIMARY KEY (UserId, UserName, Email)
+);
+
+CREATE TABLE UserInfo(
+	UserInfoId INT NOT NULL auto_increment,
+	UserId INT NOT NULL,
+    Age INT NOT NULL,
+    Bio VARCHAR(255),
+    Location VARCHAR(255),
+    Education VARCHAR(255),
+    PRIMARY KEY(UserInfoId),
+    FOREIGN KEY(UserId) REFERENCES User(UserId) ON DELETE CASCADE
 );
 
 CREATE TABLE Post(
@@ -24,14 +27,20 @@ CREATE TABLE Post(
     PostDescription TEXT NOT NULL,
     CreatedAt DATETIME,
     PRIMARY KEY (PostId),
-    FOREIGN KEY (UserId, UserName) REFERENCES user(UserId, UserName)
+    FOREIGN KEY (UserId, UserName) REFERENCES user(UserId, UserName) ON DELETE CASCADE
 );
 
-INSERT INTO User(UserName, Email, FirstName, LastName) VALUES
-('Tommy133', 'tommytest@gmail.com', 'Tommy', 'Liang'),
-('Bob', 'bob123@gmail.com', 'Bob', 'Last');
+INSERT INTO User(UserName, Email) VALUES
+('Tommy133', 'tommytest@gmail.com'),
+('Bob', 'bob123@gmail.com');
 
 SELECT * FROM User;
+
+INSERT INTO UserInfo(UserId, Age, Bio, Location, Education) VALUES
+(1, 20, "Hello World", "New York", "Hunter College"),
+(2, 18, "Life is ---", "Boston", "Krusty Krabs");
+ 
+ SELECT * FROM UserInfo;
  
 INSERT INTO Post(UserId, UserName, PostDescription, CreatedAt) VALUES
 (1, 'Tommy133', 'test text for Tommy', concat(CURDATE(), ' ', CURTIME())),
