@@ -10,6 +10,7 @@ This API allow users to interact with other users through posts
 - get User by Id -> /api/User/:id
 - get Posts -> /api/Post
 - get Post by Id -> /api/Post/:id
+- get UserInfo -> /api/UserInfo
 
 **POST**
 
