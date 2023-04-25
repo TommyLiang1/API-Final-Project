@@ -6,7 +6,7 @@ CREATE TABLE User(
 	UserId INT NOT NULL auto_increment,
     UserName VARCHAR(255) NOT NULL UNIQUE,
     Email VARCHAR(255) NOT NULL UNIQUE,
-    PRIMARY KEY (UserId, UserName, Email)
+    PRIMARY KEY (UserId, UserName)
 );
 
 CREATE TABLE UserInfo(
@@ -34,16 +34,14 @@ INSERT INTO User(UserName, Email) VALUES
 ('Tommy133', 'tommytest@gmail.com'),
 ('Bob', 'bob123@gmail.com');
 
-SELECT * FROM User;
-
 INSERT INTO UserInfo(UserId, Age, Bio, Location, Education) VALUES
 (1, 20, "Hello World", "New York", "Hunter College"),
 (2, 18, "Life is ---", "Boston", "Krusty Krabs");
- 
- SELECT * FROM UserInfo;
  
 INSERT INTO Post(UserId, UserName, PostDescription, CreatedAt) VALUES
 (1, 'Tommy133', 'test text for Tommy', concat(CURDATE(), ' ', CURTIME())),
 (2, 'Bob', 'test text for Bob', concat(CURDATE(), ' ', CURTIME()));
 
+SELECT * FROM User;
+SELECT * FROM UserInfo;
 SELECT * FROM Post;
