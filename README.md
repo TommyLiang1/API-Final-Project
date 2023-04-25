@@ -2,6 +2,9 @@
 
 This API allow users to interact with other users through posts
 
+Changes I made to my original idea:
+I grouped all of the user information into a class called UserInfo. Prior to this, I thought that the concept of grouping data into another table would make the project more complicated, which it did but it was also worth it because the API response structure looks neater.
+
 ## API Endpoints
 
 - https://localhost:7169/api/User

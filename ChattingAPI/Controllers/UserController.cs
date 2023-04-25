@@ -138,7 +138,7 @@ namespace ChattingAPI.Controllers
            
             if(user == null)
             {
-                res.statusCode = 400;
+                res.statusCode = 404;
                 res.statusDescription = "User " + id + " doesn't exist!";
                 return NotFound(res);
             }
