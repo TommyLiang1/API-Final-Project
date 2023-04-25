@@ -2,7 +2,14 @@
 
 This API allow users to interact with other users through posts
 
-## HTTP Methods and API Endpoints
+## API Endpoints
+
+- https://localhost:7169/api/User
+- https://localhost:7169/api/User/:id
+- https://localhost:7169/api/Post
+- https://localhost:7169/api/Post/:id
+
+## HTTP Methods
 
 **GET**
 
@@ -10,7 +17,6 @@ This API allow users to interact with other users through posts
 - get User by Id -> /api/User/:id
 - get Posts -> /api/Post
 - get Post by Id -> /api/Post/:id
-- get UserInfo -> /api/UserInfo
 
 **POST**
 

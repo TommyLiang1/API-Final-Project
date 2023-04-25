@@ -65,11 +65,15 @@ namespace ChattingAPI.Controllers
 
         // PUT: api/Post/:id
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutPost(int id, Post post)
+        public async Task<ActionResult<Response>> PutPost(int id, Post post)
         {
+            var res = new Response();
+
             if (id != post.PostId)
             {
-                return BadRequest();
+                res.statusCode = 404;
+                res.statusDescription = "Post id and given id doesn't match";
+                return BadRequest(res);
             }
 
             _context.Entry(post).State = EntityState.Modified;
@@ -82,7 +86,9 @@ namespace ChattingAPI.Controllers
             {
                 if (!PostExists(id))
                 {
-                    return NotFound();
+                    res.statusCode = 404;
+                    res.statusDescription = "Post " + id + " doesn't exist!";
+                    return NotFound(res);
                 }
                 else
                 {
@@ -90,7 +96,9 @@ namespace ChattingAPI.Controllers
                 }
             }
 
-            return NoContent();
+            res.statusCode = 404;
+            res.statusDescription = "Post updated!";
+            return res;
         }
 
         // POST: api/Post/:id
