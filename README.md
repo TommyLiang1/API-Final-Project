@@ -1,4 +1,4 @@
-# API-Final-Project
+# Chatting APP API
 
 This API allow users to interact with other users through posts
 
